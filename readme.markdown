@@ -42,6 +42,29 @@ var deepFreeze = require('deep-freeze-strict')
 Call `Object.freeze(obj)` recursively on all unfrozen properties of `obj` that
 are functions or objects.
 
+## deepFreeze(obj, 'freeze')
+
+Same as `deepFreeze(obj)`.
+
+## deepFreeze(obj, 'seal')
+
+Call `Object.seal(obj)` recursively on all unsealed properties of `obj` that
+are functions or objects.
+
+## deepFreeze(obj, 'preventExtensions')
+
+Call `Object.preventExtensions(obj)` recursively on all not isExtensible properties of `obj` that
+are functions or objects.
+
+# Freeze, seal, and preventExtensions
+`'preventExtensions'` is the least restrictive. It prevents arbitraty properties from added to an object.
+
+`'seal'` does everything preventExtensions does, and also prevents altering the attributes of the properties on the object, as well as preventing deletion of properties on the object.
+
+`'freeze'` is the most restrictive. It does everything preventExtensions and seal does, as well as making all of the existing properties on the object read-only.
+
+Once an object is frozen (or sealed, or not extensible), it cannot be undone.
+
 # license
 
 public domain
