@@ -1,6 +1,6 @@
 {
     "name" : "deep-freeze",
-    "version" : "0.0.1",
+    "version" : "0.0.2",
     "description" : "recursively Object.freeze() objects and functions",
     "main" : "index.js",
     "directories" : {
