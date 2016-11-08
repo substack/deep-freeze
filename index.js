@@ -5,6 +5,7 @@ module.exports = function deepFreeze (o) {
     if (o.hasOwnProperty(prop)
     && o[prop] !== null
     && (typeof o[prop] === "object" || typeof o[prop] === "function")
+    && (o[prop].constructor !== Buffer)    
     && !Object.isFrozen(o[prop])) {
       deepFreeze(o[prop]);
     }
